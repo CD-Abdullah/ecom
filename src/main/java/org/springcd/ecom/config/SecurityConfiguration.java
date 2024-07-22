@@ -23,10 +23,10 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/account/**").permitAll()
-                        .anyRequest().authenticated()
-                )
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers("/api/account/**").permitAll()
+//                        .anyRequest().authenticated()
+//                )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,10 +24,18 @@ public class ProductController {
         this.service = service;
     }
 
+//    @GetMapping("/products")
+//    public String getProducts(Model model) {
+//        List<Product> products = service.getProducts();
+//        model.addAttribute("products", products);
+//        System.out.println("Products loaded: " + products.size());  // Simple debug output
+//        return "products";
+//    }
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts() {
         return new ResponseEntity<>(service.getProducts(), HttpStatus.OK);
     }
+
 
     @GetMapping("/product/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {

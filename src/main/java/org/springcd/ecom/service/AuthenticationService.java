@@ -29,7 +29,9 @@ public class AuthenticationService {
                 .role(Role.Admin)
                 .build();
         repo.save(user);
+
         var jwtToken = jwtService.generateToken(user);
+
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
